@@ -1,32 +1,25 @@
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import styles from '../styles/home.module.scss'
+import css from '../styles/styles.module.scss'
+import Link from 'next/link'
+import Layout from '../components/layout'
 
-export default function Home({products}) {
+export default function Home() {
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to Black lotus
-        </h1>
+    <Layout>
+      <div className={styles.container}>
+        <Head>
+          <title>Black Lotus</title>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+        <main className={styles.main}>
+          <h1 className={css.example}>Welcome to Black lotus</h1>
 
-        {products.map(product => (
-            <span key={product.id}>{product.name}</span>
-        ))}
-      </main>
-    </div>
+          <Link href="/plants/all">
+            <a>all plants</a>
+          </Link>
+        </main>
+      </div>
+    </Layout>
   )
-}
-
-export async function getStaticProps () {
-  const request = await fetch('https://exoticplant.vercel.app/public/api/products')
-  const json = await request.json()
-  return {
-    props: {
-      products: json
-    }
-  }
 }

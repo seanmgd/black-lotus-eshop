@@ -1,30 +1,57 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center">Welcome to black-lotus-eshop 👋</h1>
+<p>
+  <img alt="Version" src="https://img.shields.io/badge/version-1-blue.svg?cacheSeconds=2592000" />
+  <a href="https://github.com/seanmgd/black-lotus-eshop/graphs/commit-activity" target="_blank">
+    <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
+  </a>
+</p>
 
-## Getting Started
+> Simple eCommerce for exotic plants
 
-First, run the development server:
+### 🏠 [Homepage](https://blacklotus.vercel.app/)
 
-```bash
-npm run dev
-# or
-yarn dev
+## Install
+
+```sh
+yarn install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Usage
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```sh
+yarn start
+```
 
-## Learn More
+## Run tests
 
-To learn more about Next.js, take a look at the following resources:
+```sh
+yarn test
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Author
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+👤 **Sean Magaud**
 
-## Deploy on Vercel
+- Portfolio: https://seanmagaud.herokuapp.com
+- Twitter: [@dadadu06zer](https://twitter.com/dadadu06zer)
+- Github: [@seanmgd](https://github.com/seanmgd)
+- LinkedIn: [@sean-magaud](https://linkedin.com/in/sean-magaud)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🤝 Contributing
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+👤 **Ramy Barka** [@chikoure](https://github.com/chikoure)
+
+## Architecture details
+
+NextJs && ReactJs application using Laravel API provided [by one of my other project](https://github.com/seanmgd/exoticplant-api) which is hosted on vercel too
+
+This app contain these points :
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
+
+## 📝 License
+
+Copyright © 2020 [Sean Mgd](https://github.com/seanmgd).<br />
+This project is [MIT](https://github.com/seanmgd/sinistre-eshop/blob/master/LICENSE) licensed.

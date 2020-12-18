@@ -1,0 +1,33 @@
+.card {
+  color: black;
+  padding: 16px;
+  width: 25%;
+
+  .imageContainer {
+    cursor: pointer;
+    border-radius: 3px;
+    overflow: hidden;
+    border: 1px solid #918b8b;
+
+    .image {
+      background-position: center;
+      background-size: cover;
+      height: 500px;
+      transition: 0.5s ease;
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  .infos {
+    display: flex;
+    justify-content: space-between;
+    font-size: 24px;
+    text-transform: uppercase;
+    font-weight: 200;
+    a {
+      cursor: pointer;
+    }
+  }
+}
