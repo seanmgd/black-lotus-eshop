@@ -1,0 +1,13 @@
+@import '../utils/devices';
+
+.products {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  flex-wrap: wrap;
+  flex-direction: row;
+
+  @media ($tablet) {
+    padding: 1rem 0;
+  }
+}

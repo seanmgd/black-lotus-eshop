@@ -1,0 +1,64 @@
+@import '../utils/devices';
+
+.card {
+  color: black;
+  padding: 16px 0;
+  width: 100%;
+
+  @media ($tablet) {
+    width: 50%;
+    padding: 16px;
+  }
+
+  @media ($laptop) {
+    width: 33%;
+  }
+
+  @media ($laptopL) {
+    width: 25%;
+  }
+
+  .cardContainer {
+    border: 1px solid #918b8b29;
+    border-radius: 4px;
+    transition: 0.2s ease;
+    max-height: 502px;
+    overflow: hidden;
+    &:hover {
+      //box-shadow: 6px 6px 5px -3px #afafaf2e;
+      box-shadow: 0 0 5px 3px #afafaf2e;
+      transform: translateY(1px);
+      border: 1px solid rgba(57, 56, 56, 0.16);
+    }
+
+    .imageContainer {
+      cursor: pointer;
+      overflow: hidden;
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+
+      .image {
+        background-position: center;
+        background-size: cover;
+        height: 450px;
+        transition: 0.5s ease;
+        &:hover {
+          transform: scale(1.02);
+        }
+      }
+    }
+
+    .infos {
+      display: flex;
+      justify-content: space-between;
+      font-size: 24px;
+      text-transform: uppercase;
+      font-weight: 200;
+      padding: 10px;
+
+      a {
+        cursor: pointer;
+      }
+    }
+  }
+}

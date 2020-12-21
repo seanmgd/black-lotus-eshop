@@ -1,0 +1,105 @@
+@import '../utils/devices';
+@import '../utils/colors';
+
+.burgerContainer {
+  display: flex;
+
+  @media ($tablet) {
+    display: none;
+  }
+
+  .navLogo {
+    width: 100%;
+    text-align: center;
+    margin-top: 13px;
+  }
+
+  .burger {
+    width: 2rem;
+    height: 2rem;
+    position: fixed;
+    top: 18px;
+    right: 29px;
+    z-index: 102;
+    display: flex;
+    justify-content: space-around;
+    flex-flow: column nowrap;
+    padding: 0 10px;
+
+    div {
+      width: 2rem;
+      height: 0;
+      box-shadow: 0 0 0 1px $black;
+      border-radius: 10px;
+      transform-origin: 1px;
+      transition: all 0.3s linear;
+      background-color: $black;
+    }
+
+    &.opened {
+      div {
+        &:nth-child(1) {
+          transform: rotate(45deg);
+        }
+
+        &:nth-child(2) {
+          transform: translateX(100%);
+          opacity: 0;
+        }
+
+        &:nth-child(3) {
+          transform: rotate(-45deg);
+        }
+      }
+    }
+  }
+
+  .burgerContent {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 101;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    height: 100vh;
+    width: 200px;
+    list-style: none;
+    padding-top: 3.5rem;
+    background: $white;
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(100%);
+    box-shadow: -4px 0px 18px -13px #b9b9b9;
+
+    &.opened {
+      transform: translateX(0);
+    }
+
+    li {
+      color: $black;
+      font-weight: 200;
+      padding: 18px 10px;
+      &.active {
+        border-bottom: 1px solid $black;
+      }
+    }
+
+    .sumCart {
+      position: absolute;
+      top: 15px;
+      left: 10px;
+      border-radius: 36px;
+      padding: 1px 4px;
+      font-size: 8px;
+      background: red;
+      color: #ffffff;
+    }
+
+    .burgerLang {
+      padding: 18px 10px;
+    }
+    @media ($tablet) {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+@import '../utils/devices';
+
+.container {
+  padding: 0 1rem;
+  max-width: 1600px;
+  margin: auto;
+
+  @media ($tablet) {
+    padding: 60px 1rem;
+  }
+}

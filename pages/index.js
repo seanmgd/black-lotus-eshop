@@ -1,10 +1,9 @@
 import Head from 'next/head'
 import styles from '../styles/home.module.scss'
-import css from '../styles/styles.module.scss'
-import Link from 'next/link'
 import Layout from '../components/layout'
+import { withTranslation } from '../i18n'
 
-export default function Home() {
+const Home = ({ t }) => {
   return (
     <Layout>
       <div className={styles.container}>
@@ -13,13 +12,14 @@ export default function Home() {
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <main className={styles.main}>
-          <h1 className={css.example}>Welcome to Black lotus</h1>
-
-          <Link href="/plants/all">
-            <a>all plants</a>
-          </Link>
+          <h1>{t('welcome')}</h1>
         </main>
       </div>
     </Layout>
   )
 }
+
+Home.getInitialProps = async () => ({
+  namespacesRequired: ['common'],
+})
+export default withTranslation('common')(Home)

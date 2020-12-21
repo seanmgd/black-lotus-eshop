@@ -1,6 +1,5 @@
 import Head from 'next/head'
-import styles from './all.module.scss'
-import Link from 'next/link'
+import styles from '../../styles/all.module.scss'
 import Card from '../../components/card'
 import Layout from '../../components/layout'
 
@@ -9,11 +8,7 @@ export default function All({ products }) {
     <Layout>
       <Head>
         <title>All plants</title>
-        <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Link href="/">
-        <a>Back to home</a>
-      </Link>
       <section className={styles.products}>
         {products.map((product) => (
           <Card key={product.id} product={product} />
