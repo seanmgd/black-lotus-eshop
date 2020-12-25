@@ -11,14 +11,14 @@
   .navLogo {
     width: 100%;
     text-align: center;
-    margin-top: 13px;
+    margin-top: 3px;
   }
 
   .burger {
     width: 2rem;
     height: 2rem;
     position: fixed;
-    top: 18px;
+    top: 7px;
     right: 29px;
     z-index: 102;
     display: flex;
@@ -28,8 +28,8 @@
 
     div {
       width: 2rem;
-      height: 0;
-      box-shadow: 0 0 0 1px $black;
+      height: 1px;
+      box-shadow: 0 0 0 1px $white;
       border-radius: 10px;
       transform-origin: 1px;
       transition: all 0.3s linear;
