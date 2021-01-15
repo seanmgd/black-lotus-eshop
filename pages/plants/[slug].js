@@ -1,11 +1,15 @@
 import { useRouter } from 'next/router'
+import { useApollo } from "../../lib/apolloClient";
+import {ALL_PLANTS_QUERY, SINGLE_PLANT_QUERY} from "../api/querys";
 
 export async function getStaticPaths() {
-  const request = await fetch(
-    'https://exoticplant.vercel.app/public/api/products',
-  )
-  const json = await request.json()
-  const paths = json.map((product) => ({
+  const apolloClient = useApollo();
+
+  const { data } = await apolloClient.query({
+    query: ALL_PLANTS_QUERY,
+  });
+
+  const paths = data.products.map((product) => ({
     params: { slug: product.slug },
   }))
 
@@ -13,14 +17,16 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const request = await fetch(
-    'https://exoticplant.vercel.app/public/api/product/' + params.slug,
-  )
+  const apolloClient = useApollo();
 
-  const json = await request.json()
+  const { data } = await apolloClient.query({
+    query: SINGLE_PLANT_QUERY,
+    variables: { slug: params.slug }
+  });
+
   return {
     props: {
-      product: json,
+      product: data.product,
     },
   }
 }

@@ -1,8 +1,17 @@
 import '../styles/globals.scss'
 import App from 'next/app'
 import { appWithTranslation } from '../i18n'
+import { ApolloProvider } from "@apollo/client";
+import { useApollo } from "../lib/apolloClient";
 
-const MyApp = ({ Component, pageProps }) => <Component {...pageProps} />
+const MyApp = ({ Component, pageProps }) => {
+    const apolloClient = useApollo();
+    return (
+        <ApolloProvider client={apolloClient}>
+            <Component {...pageProps} />
+        </ApolloProvider>
+        );
+}
 
 MyApp.getInitialProps = async (appContext) => ({
   ...(await App.getInitialProps(appContext)),
