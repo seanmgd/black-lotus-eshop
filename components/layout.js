@@ -4,7 +4,7 @@ import Navbar from './navbar'
 export default function Layout({ noMaxWidth, children }) {
   return (
     <>
-      <Navbar />
+      <Navbar navbarNoMaxWidth={noMaxWidth && true} />
       <div
         className={styles.container}
         style={{ maxWidth: noMaxWidth === undefined ? '1600px' : '' }}

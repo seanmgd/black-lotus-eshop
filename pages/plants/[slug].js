@@ -1,13 +1,13 @@
 import { useRouter } from 'next/router'
-import { useApollo } from "../../lib/apolloClient";
-import {ALL_PLANTS_QUERY, SINGLE_PLANT_QUERY} from "../api/querys";
+import { useApollo } from '../../lib/apolloClient'
+import { ALL_PLANTS_QUERY, SINGLE_PLANT_QUERY } from '../api/gql/queries'
 
 export async function getStaticPaths() {
-  const apolloClient = useApollo();
+  const apolloClient = useApollo()
 
   const { data } = await apolloClient.query({
     query: ALL_PLANTS_QUERY,
-  });
+  })
 
   const paths = data.products.map((product) => ({
     params: { slug: product.slug },
@@ -17,12 +17,12 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const apolloClient = useApollo();
+  const apolloClient = useApollo()
 
   const { data } = await apolloClient.query({
     query: SINGLE_PLANT_QUERY,
-    variables: { slug: params.slug }
-  });
+    variables: { slug: params.slug },
+  })
 
   return {
     props: {

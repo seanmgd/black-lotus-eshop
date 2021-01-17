@@ -2,8 +2,8 @@ import Head from 'next/head'
 import styles from '../../styles/all.module.scss'
 import Card from '../../components/card'
 import Layout from '../../components/layout'
-import {useApollo} from "../../lib/apolloClient";
-import { ALL_PLANTS_QUERY } from "../api/querys";
+import { useApollo } from '../../lib/apolloClient'
+import { ALL_PLANTS_QUERY } from '../api/gql/queries'
 
 export default function All({ products }) {
   return (
@@ -21,15 +21,15 @@ export default function All({ products }) {
 }
 
 export async function getStaticProps() {
-    const apolloClient = useApollo();
+  const apolloClient = useApollo()
 
-    const { data } = await apolloClient.query({
-        query: ALL_PLANTS_QUERY,
-    });
+  const { data } = await apolloClient.query({
+    query: ALL_PLANTS_QUERY,
+  })
 
-    return {
-        props: {
-            products: data.products,
-        }
-    };
+  return {
+    props: {
+      products: data.products,
+    },
+  }
 }
