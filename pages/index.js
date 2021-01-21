@@ -16,7 +16,6 @@ const Home = ({t, products}) => {
     randomProduct.push(products[random])
   }
   return (
-    <Layout noMaxWidth="true">
       <div className={styles.container}>
         <Head>
           <title>Black Lotus</title>
@@ -53,7 +52,6 @@ const Home = ({t, products}) => {
           </section>
         </div>
       </div>
-    </Layout>
   )
  }
 

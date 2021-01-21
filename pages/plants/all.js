@@ -7,16 +7,16 @@ import { ALL_PLANTS_QUERY } from "../api/querys";
 
 export default function All({ products }) {
   return (
-    <Layout>
-      <Head>
-        <title>All plants</title>
-      </Head>
-      <section className={styles.products}>
-        {products.map((product) => (
-          <Card key={product.id} product={product} />
-        ))}
-      </section>
-    </Layout>
+      <>
+          <Head>
+            <title>All plants</title>
+          </Head>
+          <section className={styles.products}>
+            {products.map((product) => (
+              <Card key={product.id} product={product} />
+            ))}
+          </section>
+      </>
   )
 }
 
