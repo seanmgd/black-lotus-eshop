@@ -47,6 +47,11 @@ NextJs && ReactJs application using Laravel API provided [by one of my other pro
 
 This app contain these points :
 
+- [i18n](https://github.com/seanmgd/black-lotus-eshop/blob/main/i18n.js) for [multilanguage](https://github.com/seanmgd/black-lotus-eshop/tree/main/public/static/locales)
+- [apollo && graphQL api](https://github.com/seanmgd/black-lotus-eshop/commit/6cc25a6e7563f92ff2bf20c36cf0f80703767be6)
+- [next-auth for OAuth providers](https://github.com/seanmgd/black-lotus-eshop/blob/main/pages/api/auth/%5B...nextauth%5D.js)
+- [newsletter using mailchimp (WIP)](https://github.com/seanmgd/black-lotus-eshop)
+
 ## Show your support
 
 Give a ⭐️ if this project helped you!

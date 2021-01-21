@@ -5,11 +5,10 @@ import styles from '../styles/home.module.scss'
 import { withTranslation } from '../i18n'
 import Image from 'next/image'
 import React from 'react'
-import { ALL_PLANTS_QUERY } from '../pages/api/querys'
-import {useApollo} from "../lib/apolloClient";
+import { ALL_PLANTS_QUERY } from './api/gql/queries'
+import { useApollo } from '../lib/apolloClient'
 
-const Home = ({t, products}) => {
-  console.log(products)
+const Home = ({ t, products }) => {
   let randomProduct = []
   for (let index = 0; index < 4; index++) {
     const random = Math.floor(Math.random() * products.length)
@@ -53,21 +52,20 @@ const Home = ({t, products}) => {
         </div>
       </div>
   )
- }
+}
 
 export async function getStaticProps() {
-
-  const apolloClient = useApollo();
+  const apolloClient = useApollo()
 
   const { data } = await apolloClient.query({
     query: ALL_PLANTS_QUERY,
-  });
+  })
 
   return {
     props: {
       products: data.products,
-    }
-  };
+    },
+  }
 }
 
 export default withTranslation('common')(Home)

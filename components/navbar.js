@@ -8,9 +8,19 @@ import { useRouter } from 'next/router'
 import { withTranslation, i18n } from '../i18n'
 import Image from 'next/image'
 import Burger from './burger'
+import { useSession, signIn, signOut } from 'next-auth/client'
 
-const Navbar = ({ t }) => {
+const Navbar = ({ navbarNoMaxWidth, t }) => {
   const router = useRouter()
+  const [session] = useSession()
+  const handleSignin = (e) => {
+    e.preventDefault()
+    signIn()
+  }
+  const handleSignout = (e) => {
+    e.preventDefault()
+    signOut()
+  }
   const ROUTES = [
     {
       name: 'home',
@@ -37,7 +47,10 @@ const Navbar = ({ t }) => {
   return (
     <>
       <div className={styles.navbar}>
-        <div className={styles.container}>
+        <div
+          className={styles.container}
+          style={{ maxWidth: navbarNoMaxWidth === undefined ? '1600px' : '' }}
+        >
           <div className={styles.leftNav}>
             <Link href="/">
               <a>
@@ -73,6 +86,18 @@ const Navbar = ({ t }) => {
             ))}
           </div>
           <div className={styles.rightNav}>
+            <span>
+              {session && (
+                <a href="#" onClick={handleSignout} className="btn-signin">
+                  {t('logout')}
+                </a>
+              )}
+              {!session && (
+                <a href="#" onClick={handleSignin} className="btn-signin">
+                  {t('login')}
+                </a>
+              )}
+            </span>
             <span
               onClick={() =>
                 i18n.changeLanguage(i18n.language === 'en' ? 'fr' : 'en')
