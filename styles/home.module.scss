@@ -114,5 +114,43 @@
         }
       }
     }
+
+    section.shipping {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      height: 300px;
+      width: 100%;
+      background: $green;
+
+      @media ($tablet) {
+        height: 400px;
+      }
+
+      .rightContainer {
+        display: none;
+        @media ($tablet) {
+          display: flex;
+          position: relative;
+          width: 50%;
+          height: inherit;
+        }
+      }
+
+      .leftText {
+        width: 100%;
+        color: white;
+        text-align: justify;
+        padding: 16px;
+        font-size: 20px;
+
+        @media ($tablet) {
+          width: 50%;
+          font-size: 24px;
+          padding: 64px;
+        }
+      }
+    }
   }
 }
