@@ -1,0 +1,41 @@
+@import '../utils/devices';
+@import '../utils/colors';
+
+.product {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  flex-direction: row;
+  padding: 3rem 8rem;
+  .productImageContainer {
+    cursor: pointer;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    .productImage {
+        background-position: center;
+        height: 600px;
+        width: 450px;
+    }
+  }
+  .productInformationContainer {
+    padding-left:4rem;
+    line-height: 3em;
+    width: 450px;
+    ul {
+      font-size: 12px;
+      list-style: none;
+    }
+  }
+  .button {
+    width: 100%;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    background-color: $light-green;
+    color: $green;
+    border: none;
+    padding: 12px;
+  }
+}
+

@@ -1,0 +1,117 @@
+@import '../utils/devices';
+
+.checkoutContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-direction: column;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1em;
+  @media ($tablet) {
+    flex-direction: row;
+    padding: 5em 1em;
+  }
+
+  .checkoutShippingDetails {
+    width: 100%;
+    @media ($tablet) {
+    width: 45%;
+  }
+  }
+
+  .checkoutInfoDetails {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    @media ($tablet) {
+      width: 45%;
+    }
+
+    .checkoutOrderDetails {
+      padding: 32px;
+      background-color: white;
+      color: black;
+      border-radius: 4px;
+    }
+
+    .checkoutSecurityDetails {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-direction: column;
+      font-style: italic;
+      @media ($tablet) {
+        align-items: center;
+      }
+      @media ($laptop) {
+        flex-direction: row;
+      }
+
+      p {
+        margin: 12px 0;
+        @media ($tablet) {
+          text-align: justify;
+          margin: 0 6px;
+        }
+        @media ($laptop) {
+          margin: 0 12px 0 0;
+        }
+      }
+    }
+  }
+
+  .checkoutCouponDetails {
+    display: flex;
+    flex-direction: column;
+    margin: 32px 0;
+
+    span {
+      font-size: 18px;
+    }
+
+    .checkoutInputCoupon {
+      display: flex;
+      margin-top: 8px;
+
+      input {
+        width: 60%;
+        border-right: 0;
+        text-transform: uppercase;
+        font-size: 1.5em;
+      }
+
+      .checkoutButtonCoupon {
+        width: 40%;
+        text-align: center;
+        margin-left: -3px;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+    }
+  }
+}
+
+.checkoutRowDetails {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 16px;
+
+  :nth-last-child(2) {
+    padding-top: 8px;
+    text-align: right;
+
+    span:first-child {
+      font-weight: 700;
+    }
+  }
+
+  :last-child {
+    margin: 0;
+    padding-top: 16px;
+    border-top: 1px solid black;
+    font-size: 18px;
+    font-weight: 700;
+  }
+}
