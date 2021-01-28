@@ -1,9 +1,9 @@
 import Head from 'next/head'
 import Card from '../components/card'
+import { Newsletter } from '../components/Newsletter'
 import styles from '../styles/home.module.scss'
 import { withTranslation } from '../i18n'
 import Image from 'next/image'
-import React from 'react'
 import { ALL_PLANTS_QUERY } from './api/gql/queries'
 import { useApollo } from '../lib/apolloClient'
 
@@ -42,6 +42,20 @@ const Home = ({ t, products }) => {
             <Image src="/home-img.png" alt="" layout="fill" objectFit="cover" />
           </div>
           <p className={styles.rightText}>{t('home_message')} 💚</p>
+        </section>
+
+        <section className={styles.shipping}>
+          <p className={styles.leftText}>{t('shipping_message')} 🌼</p>
+          <div className={styles.rightContainer}>
+            <Image
+              src="/home-img-2.jpg"
+              alt=""
+              layout="fill"
+              objectFit="cover"
+            />
+          </div>
+        </section>
+        <section className={styles.newsletter}>
         </section>
       </div>
     </div>

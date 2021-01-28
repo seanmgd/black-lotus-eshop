@@ -1,16 +1,13 @@
 import styles from '../styles/layout.module.scss'
 import Navbar from './navbar'
+import Footer from './footer'
 
-export default function Layout({ noMaxWidth, children }) {
+export default function Layout({ children }) {
   return (
     <>
-      <Navbar navbarNoMaxWidth={noMaxWidth && true} />
-      <div
-        className={styles.container}
-        style={{ maxWidth: noMaxWidth === undefined ? '1600px' : '' }}
-      >
-        {children}
-      </div>
+      <Navbar />
+      <div className={styles.container}>{children}</div>
+      <Footer />
     </>
   )
 }

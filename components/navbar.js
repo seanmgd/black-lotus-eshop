@@ -10,7 +10,7 @@ import Image from 'next/image'
 import Burger from './burger'
 import { useSession, signIn, signOut } from 'next-auth/client'
 
-const Navbar = ({ navbarNoMaxWidth, t }) => {
+const Navbar = ({ t }) => {
   const router = useRouter()
   const [session] = useSession()
   const handleSignin = (e) => {
@@ -47,10 +47,7 @@ const Navbar = ({ navbarNoMaxWidth, t }) => {
   return (
     <>
       <div className={styles.navbar}>
-        <div
-          className={styles.container}
-          style={{ maxWidth: navbarNoMaxWidth === undefined ? '1600px' : '' }}
-        >
+        <div className={styles.container}>
           <div className={styles.leftNav}>
             <Link href="/">
               <a>
