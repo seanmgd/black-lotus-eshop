@@ -6,17 +6,20 @@ import { useApollo } from '../lib/apolloClient'
 import { Provider } from 'next-auth/client'
 import Layout from '../components/layout'
 import { CartContextProvider } from '../contexts/cartContext'
+import { UserContextProvider } from '../contexts/userContext'
 
 const MyApp = ({ Component, pageProps }) => {
   const apolloClient = useApollo()
   return (
     <Provider session={pageProps.session}>
       <ApolloProvider client={apolloClient}>
-        <CartContextProvider>
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
-        </CartContextProvider>
+        <UserContextProvider>
+          <CartContextProvider>
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+          </CartContextProvider>
+        </UserContextProvider>
       </ApolloProvider>
     </Provider>
   )

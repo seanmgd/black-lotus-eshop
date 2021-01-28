@@ -9,10 +9,13 @@ import { withTranslation, i18n } from '../i18n'
 import Image from 'next/image'
 import Burger from './burger'
 import { useSession, signIn, signOut } from 'next-auth/client'
+import { useUserContext } from '../contexts/userContext'
 
 const Navbar = ({ t }) => {
   const router = useRouter()
   const [session] = useSession()
+  const { user } = useUserContext()
+  const authenticated = user.token
   const handleSignin = (e) => {
     e.preventDefault()
     signIn()
@@ -84,15 +87,19 @@ const Navbar = ({ t }) => {
           </div>
           <div className={styles.rightNav}>
             <span>
-              {session && (
-                <a href="#" onClick={handleSignout} className="btn-signin">
+              {(session || authenticated) && (
+                <Link href={'/logout'}>
+                  {/*<a onClick={handleSignout} className="btn-signin">*/}
                   {t('logout')}
-                </a>
+                  {/*</a>*/}
+                </Link>
               )}
-              {!session && (
-                <a href="#" onClick={handleSignin} className="btn-signin">
+              {!session && !authenticated && (
+                <Link href={'/authentication'}>
+                  {/*<a onClick={handleSignin} className="btn-signin">*/}
                   {t('login')}
-                </a>
+                  {/*</a>*/}
+                </Link>
               )}
             </span>
             <span

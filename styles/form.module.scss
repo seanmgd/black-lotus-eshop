@@ -1,0 +1,32 @@
+.formContainer {
+  max-width: 450px;
+  margin: 0 auto;
+  padding: 0 2em;
+  font-size: 16px;
+  button {
+    width: 100%;
+  }
+  .form {
+    margin-bottom: 25px;
+    h1 {
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    label {
+      display: inline-block;
+    }
+    input {
+      padding: 10px;
+    }
+  }
+
+  .clientText {
+    display: inline-block;
+    margin-right: 4px;
+  }
+
+  .switchForm {
+    cursor: pointer;
+    font-weight: 600;
+  }
+}
