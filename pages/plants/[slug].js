@@ -86,12 +86,14 @@ const Plant = ({ t, product }) => {
                 {t('advantage')}: {product.advantage}
               </li>
             )}
-            <li>
-              {t('sun')}:
-              <span className={styles.sun}>
-                {product.sun.replace(/[\[\"\]']+/g, '')}
-              </span>
-            </li>
+            {product.sun !== null && (
+              <li>
+                {t('sun')}:
+                <span className={styles.sun}>
+                  {product.sun.replace(/[\[\"\]']+/g, '')}
+                </span>
+              </li>
+            )}
           </ul>
           {showCart && (
             <div className={styles.toast}>

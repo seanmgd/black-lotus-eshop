@@ -1,0 +1,38 @@
+
+.inputWrapper {
+  width: 100%;
+  margin-bottom: 16px;
+
+  .inputElement {
+    border-radius: 4px;
+    padding: 12px 14px;
+    font-size: 16px;
+    width: 100%;
+
+    &:focus {
+      border-color: darkgrey;
+    }
+  }
+
+  .inputLabel {
+    color: black;
+    display: block;
+    overflow-wrap: break-word;
+    margin-bottom: 4px;
+  }
+
+  .inputField {
+    width: 100%;
+
+    .inputElement {
+      border-radius: 4px;
+      padding: 12px 14px;
+      font-size: 16px;
+      width: 100%;
+
+      &:focus {
+        border-color: darkgrey;
+      }
+    }
+  }
+}

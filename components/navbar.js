@@ -10,12 +10,16 @@ import Image from 'next/image'
 import Burger from './burger'
 import { useSession, signIn, signOut } from 'next-auth/client'
 import { useCartContext } from '../contexts/cartContext'
+import { useUserContext } from '../contexts/userContext'
 
 const Navbar = ({ t }) => {
   const router = useRouter()
   const [session] = useSession()
+  const { user } = useUserContext()
+  const authenticated = user.token
   const { cart } = useCartContext()
   const productsSum = cart.reduce((acc, curr) => acc + parseInt(curr.qty), 0)
+
   const handleSignin = (e) => {
     e.preventDefault()
     signIn()
@@ -87,15 +91,11 @@ const Navbar = ({ t }) => {
           </div>
           <div className={styles.rightNav}>
             <span>
-              {session && (
-                <a href="#" onClick={handleSignout} className="btn-signin">
-                  {t('logout')}
-                </a>
+              {(session || authenticated) && (
+                <Link href={'/logout'}>{t('logout')}</Link>
               )}
-              {!session && (
-                <a href="#" onClick={handleSignin} className="btn-signin">
-                  {t('login')}
-                </a>
+              {!session && !authenticated && (
+                <Link href={'/authentication'}>{t('login')}</Link>
               )}
             </span>
             <span
