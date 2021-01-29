@@ -9,10 +9,13 @@ import { withTranslation, i18n } from '../i18n'
 import Image from 'next/image'
 import Burger from './burger'
 import { useSession, signIn, signOut } from 'next-auth/client'
+import { useCartContext } from '../contexts/cartContext'
 
 const Navbar = ({ t }) => {
   const router = useRouter()
   const [session] = useSession()
+  const { cart } = useCartContext()
+  const productsSum = cart.reduce((acc, curr) => acc + parseInt(curr.qty), 0)
   const handleSignin = (e) => {
     e.preventDefault()
     signIn()
@@ -70,14 +73,14 @@ const Navbar = ({ t }) => {
                     router.pathname === route.path ? styles.active : '',
                   ].join(' ')}
                 >
-                  {route.name ? (
-                    t(route.name)
-                  ) : (
-                    <>
-                      <FontAwesomeIcon icon={route.icon} />
-                      {/*<div className={styles.sumCart}>0</div>*/}
-                    </>
-                  )}
+                  {route.name
+                    ? t(route.name)
+                    : cart.length !== 0 && (
+                        <>
+                          <FontAwesomeIcon icon={route.icon} />
+                          <span className={styles.sumCart}>{productsSum}</span>
+                        </>
+                      )}
                 </a>
               </Link>
             ))}
