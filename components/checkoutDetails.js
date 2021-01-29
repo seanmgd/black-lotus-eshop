@@ -5,14 +5,13 @@ export default function CheckoutDetails({
   productName,
   productPrice,
   productQty,
-  productSize,
   children,
 }) {
   return (
     <div className={styles.checkoutRowDetails}>
       {productName && productQty && (
         <span>
-          {productName} x {productQty} ({productSize})
+          {productName} x {productQty}
         </span>
       )}
       {productPrice && <span>{productPrice} €</span>}

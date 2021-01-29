@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Card from '../components/card'
-import { Newsletter } from '../components/Newsletter'
+import { Newsletter } from '../components/newsletter'
 import styles from '../styles/home.module.scss'
 import { withTranslation } from '../i18n'
 import Image from 'next/image'
@@ -56,6 +56,7 @@ const Home = ({ t, products }) => {
           </div>
         </section>
         <section className={styles.newsletter}>
+          <Newsletter />
         </section>
       </div>
     </div>

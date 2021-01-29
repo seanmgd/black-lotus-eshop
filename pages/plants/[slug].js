@@ -1,8 +1,11 @@
+import React from 'react'
 import { useRouter } from 'next/router'
 import { useApollo } from '../../lib/apolloClient'
 import { ALL_PLANTS_QUERY, SINGLE_PLANT_QUERY } from '../api/gql/queries'
 import styles from '../../styles/product.module.scss'
 import { useCartContext } from '../../contexts/cartContext'
+import Link from 'next/link'
+import { withTranslation } from '../../i18n'
 
 export async function getStaticPaths() {
   const apolloClient = useApollo()
@@ -33,12 +36,14 @@ export async function getStaticProps({ params }) {
   }
 }
 
-export default function Plants({ t, product }) {
+const Plant = ({ t, product }) => {
   const router = useRouter()
   const { updateCart } = useCartContext()
+  const [showCart, setShowCart] = React.useState(false)
 
   const cartHandler = (event) => {
     event.preventDefault()
+    setShowCart(!showCart)
     updateCart({
       id: product.id,
       slug: product,
@@ -48,7 +53,7 @@ export default function Plants({ t, product }) {
       price: product.price,
     })
   }
-
+  console.log(product)
   if (router.isFallback) {
     return <div>Loading...</div>
   } else {
@@ -58,18 +63,49 @@ export default function Plants({ t, product }) {
           <img className={styles.productImage} src={product.image} />
         </div>
         <div className={styles.productInformationContainer}>
-          <p>☘ {product.name}</p>
-          <p>€{product.price}</p>
+          <h1>
+            {product.name}
+            <span>{product.family}</span>
+          </h1>
+          <h3>{product.price} €</h3>
           <ul>
-            <li>Diamétre: {product.diameter}</li>
-            <li>Taille à maturité: {product.height}</li>
-            <li>Entretien: {product.level}</li>
+            <li>
+              {t('diameter')}: {product.diameter}
+            </li>
+            <li>
+              {t('size')}: {product.height}
+            </li>
+            <li>
+              {t('level')}: {product.level}
+            </li>
+            <li>
+              {t('pet_friendly')}: {product.pet_friendly ? 'OK' : 'No'}
+            </li>
+            {product.advantage !== null && (
+              <li>
+                {t('advantage')}: {product.advantage}
+              </li>
+            )}
+            <li>
+              {t('sun')}:
+              <span className={styles.sun}>
+                {product.sun.replace(/[\[\"\]']+/g, '')}
+              </span>
+            </li>
           </ul>
+          {showCart && (
+            <div className={styles.toast}>
+              {t('product_added')}
+              <Link href="/cart">{t('see_cart')}</Link>
+            </div>
+          )}
           <button className={styles.button} onClick={cartHandler}>
-            Ajouter au panier
+            {t('add_cart')}
           </button>
         </div>
       </div>
     )
   }
 }
+
+export default withTranslation('common')(Plant)

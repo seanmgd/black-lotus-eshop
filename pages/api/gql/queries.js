@@ -5,6 +5,8 @@ export const SINGLE_PLANT_QUERY = gql`
     product(slug: $slug) {
       id
       name
+      family
+      advantage
       price
       image
       diameter

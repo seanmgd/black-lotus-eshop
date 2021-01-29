@@ -25,14 +25,13 @@ function Index({ t }) {
               productName={product.name}
               productPrice={product.price * product.qty}
               productQty={product.qty}
-              productSize={product.size}
             />
           ))}
           <CheckoutDetails>
             <span>{t('shipping')}</span>
             <span>
               10 € <br />
-              <br /> {t('shipping_estimated')} jeudi 23 décembre
+              <br /> {t('shipping_estimated')}
             </span>
           </CheckoutDetails>
           <CheckoutDetails>
