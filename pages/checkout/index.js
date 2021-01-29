@@ -2,8 +2,8 @@ import React from 'react'
 import { withTranslation } from '../../i18n'
 import { useCartContext } from '../../contexts/cartContext'
 import styles from '../../styles/checkout.module.scss'
-import CheckoutDetails from '../../components/CheckoutDetails'
-import PaypalButton from '../../components/PaypalButton'
+import CheckoutDetails from '../../components/checkoutDetails'
+import PaypalButton from '../../components/paypalButton'
 
 function Index({ t }) {
   const { cart } = useCartContext()

@@ -1,4 +1,4 @@
-import { Socialmedias } from './socialmedias'
+import { SocialMedias } from './socialMedias'
 import Link from 'next/link'
 import { withTranslation } from '../i18n'
 import styles from '../styles/footer.module.scss'
@@ -22,7 +22,7 @@ const Footer = ({ t }) => {
           <h3 className={styles.columnTitle}>{t('discovers')}</h3>
           <ul className={styles.columnList}>
             <li>
-              <Socialmedias />
+              <SocialMedias />
             </li>
             <li>
               <Link href={'/'}>{t('who_are_we')}</Link>
