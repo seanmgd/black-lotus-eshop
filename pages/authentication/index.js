@@ -5,6 +5,8 @@ import { checkValidity } from '../../utils/checkFormValidity'
 import { renderForm } from '../../utils/renderForm'
 import styles from '../../styles/form.module.scss'
 import { useUserContext } from '../../contexts/userContext'
+import { useSession, signIn, signOut } from 'next-auth/client'
+import Link from 'next/link'
 
 function Login({ t }) {
   const [formControls, setFormControls] = React.useState({
@@ -175,6 +177,15 @@ function Login({ t }) {
     register(registerParams)
   }
 
+  const handleSignin = (e) => {
+    e.preventDefault()
+    signIn()
+  }
+  const handleSignout = (e) => {
+    e.preventDefault()
+    signOut()
+  }
+
   return (
     <div className={styles.formContainer}>
       <form className={styles.form}>
@@ -185,9 +196,12 @@ function Login({ t }) {
         </button>
       </form>
 
-      <h2 className={styles.clientText}>
+      <a onClick={handleSignin} className="btn-signin">
+        Se connecter avec Google, Facebook ou Github
+      </a>
+      <p className={styles.clientText}>
         <span>{loginMode ? t('new_user') : t('user')}</span>
-      </h2>
+      </p>
 
       <a
         className={styles.switchForm}

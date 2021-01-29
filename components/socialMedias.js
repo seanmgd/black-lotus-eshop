@@ -8,7 +8,7 @@ import {
   faInstagram,
 } from '@fortawesome/free-brands-svg-icons'
 
-export const Socialmedias = () => {
+export const SocialMedias = () => {
   return (
     <div className={styles.wrapper}>
       <a

@@ -9,6 +9,7 @@ import { withTranslation, i18n } from '../i18n'
 import Image from 'next/image'
 import Burger from './burger'
 import { useSession, signIn, signOut } from 'next-auth/client'
+import { useCartContext } from '../contexts/cartContext'
 import { useUserContext } from '../contexts/userContext'
 
 const Navbar = ({ t }) => {
@@ -16,6 +17,9 @@ const Navbar = ({ t }) => {
   const [session] = useSession()
   const { user } = useUserContext()
   const authenticated = user.token
+  const { cart } = useCartContext()
+  const productsSum = cart.reduce((acc, curr) => acc + parseInt(curr.qty), 0)
+
   const handleSignin = (e) => {
     e.preventDefault()
     signIn()
@@ -73,14 +77,14 @@ const Navbar = ({ t }) => {
                     router.pathname === route.path ? styles.active : '',
                   ].join(' ')}
                 >
-                  {route.name ? (
-                    t(route.name)
-                  ) : (
-                    <>
-                      <FontAwesomeIcon icon={route.icon} />
-                      {/*<div className={styles.sumCart}>0</div>*/}
-                    </>
-                  )}
+                  {route.name
+                    ? t(route.name)
+                    : cart.length !== 0 && (
+                        <>
+                          <FontAwesomeIcon icon={route.icon} />
+                          <span className={styles.sumCart}>{productsSum}</span>
+                        </>
+                      )}
                 </a>
               </Link>
             ))}
@@ -88,18 +92,10 @@ const Navbar = ({ t }) => {
           <div className={styles.rightNav}>
             <span>
               {(session || authenticated) && (
-                <Link href={'/logout'}>
-                  {/*<a onClick={handleSignout} className="btn-signin">*/}
-                  {t('logout')}
-                  {/*</a>*/}
-                </Link>
+                <Link href={'/logout'}>{t('logout')}</Link>
               )}
               {!session && !authenticated && (
-                <Link href={'/authentication'}>
-                  {/*<a onClick={handleSignin} className="btn-signin">*/}
-                  {t('login')}
-                  {/*</a>*/}
-                </Link>
+                <Link href={'/authentication'}>{t('login')}</Link>
               )}
             </span>
             <span

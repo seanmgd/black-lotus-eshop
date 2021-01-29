@@ -1,9 +1,10 @@
 @import '../utils/devices';
+@import '../utils/colors';
 
 .checkoutContainer {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
   flex-direction: column;
   max-width: 1000px;
   margin: 0 auto;
@@ -16,8 +17,8 @@
   .checkoutShippingDetails {
     width: 100%;
     @media ($tablet) {
-    width: 45%;
-  }
+      width: 45%;
+    }
   }
 
   .checkoutInfoDetails {
@@ -83,6 +84,8 @@
 
       .checkoutButtonCoupon {
         width: 40%;
+        color: $white;
+        background: $green;
         text-align: center;
         margin-left: -3px;
         border-top-left-radius: 0;
@@ -98,7 +101,7 @@
   width: 100%;
   margin-bottom: 16px;
 
-  :nth-last-child(2) {
+  &:nth-last-child(2) {
     padding-top: 8px;
     text-align: right;
 
@@ -107,7 +110,7 @@
     }
   }
 
-  :last-child {
+  &:last-child {
     margin: 0;
     padding-top: 16px;
     border-top: 1px solid black;

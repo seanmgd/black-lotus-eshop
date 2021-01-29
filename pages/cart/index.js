@@ -2,7 +2,7 @@ import { stopEvent } from '@ttrmz/react-utils'
 import React from 'react'
 import Link from 'next/link'
 import { useCartContext } from '../../contexts/cartContext'
-import CartItem from '../../components/CartItem'
+import CartItem from '../../components/cartItem'
 import { withTranslation } from '../../i18n'
 import styles from '../../styles/cart.module.scss'
 
@@ -47,9 +47,7 @@ function Cart({ t }) {
                   <Link href={'/checkout'}>{t('checkout')}</Link>
                 </button>
 
-                <button onClick={handleClear}>
-                  {t('clear')}
-                </button>
+                <button onClick={handleClear}>{t('clear')}</button>
               </div>
             </div>
           </div>

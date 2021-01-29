@@ -2,7 +2,6 @@
 
 .cartWrapper {
   display: flex;
-  align-items: baseline;
   max-width: 1140px;
   margin: 0 auto;
   flex-direction: column;
@@ -66,10 +65,6 @@
       border: 1px solid #c8c6c670;
       box-shadow: 14px 19px 19px -14px #8f868696;
       transition: 0.5s ease;
-
-      :hover {
-        transform: translateY(2px);
-      }
     }
 
     @media ($laptop) {
@@ -91,7 +86,7 @@
         flex-direction: column;
 
         div {
-          :first-child {
+          &:first-child {
             margin-bottom: 1em;
           }
         }
@@ -103,7 +98,7 @@
       justify-content: center;
 
       button {
-        :first-child {
+        &:first-child {
           margin-right: 1em;
         }
       }
@@ -164,10 +159,8 @@
 
 .cartImage {
   @media ($tablet) {
-    background-position: center;
-    background-size: cover;
-    height: 100px;
-    width: 200px;
+    height: 160px;
+    width: auto;
   }
 }
 
@@ -188,17 +181,14 @@
       font-size: 12px;
       margin: 0 0.5em;
 
-      :first-child {
-        display: none;
-      }
-
       :nth-child(2) {
         width: 25%;
       }
-
-      :nth-last-child(2) {
-        display: none;
-      }
+    }
+    button {
+      border: 1px solid black;
+      padding: 4px 8px;
+      margin-right: 8px;
     }
   }
 
@@ -211,15 +201,11 @@
       margin: 0 1em 1em;
       border: 1px solid #c8c6c670;
 
-      :hover {
-        transform: translateY(2px);
-      }
-
       li {
         font-size: inherit;
         margin: 0 1em;
 
-        :first-child {
+        &:first-child {
           display: block;
           width: auto;
           margin: 0;
